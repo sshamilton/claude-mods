@@ -1,6 +1,6 @@
 # host-colors
 
-A Claude Code mod that colors the bar above the prompt, the footer mode row and the status line by the machine's hostname. Each host gets its own color, so you can tell sessions apart at a glance.
+A Claude Code mod that colors the bar above the prompt and the footer mode row by the machine's hostname. Each host gets its own color, so you can tell sessions apart at a glance.
 
 ## Install
 

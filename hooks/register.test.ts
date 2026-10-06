@@ -8,18 +8,23 @@ const RUN_RESULT = {
   isStderrTruncated: false,
 }
 
-test('pins the host name on the status line at session start', async ($, on) => {
-  const status: Array<string | undefined> = []
+test('leads the footer with the host tag', async ($, on) => {
   on('process.run', () => ({ value: RUN_RESULT }))
   on('session.start', ($, e) => ({ cwd: e.cwd }))
-  on('ui.status', ($, e) => {
-    status.push(e.text)
-    return { value: undefined }
-  })
+  on('ui.render', () => ({ type: 'Text', props: {}, children: ['modes'] }))
 
   await $.session.start({ cwd: '/tmp', surface: 'terminal', isInteractive: true })
 
-  expect(status).toEqual(['⬢ pliny'])
+  const tree = await $.ui.render({
+    surface: 'terminal',
+    component: 'SessionMode',
+    requestId: 'footer',
+    props: { modes: ['auto'] },
+  })
+  const text = JSON.stringify(tree)
+  expect(text).toContain('pliny')
+  expect(text).toContain('#2fbf71')
+  expect(text).toContain('modes')
 })
 
 test('draws the host rule above the prompt in the host color', async ($, on) => {

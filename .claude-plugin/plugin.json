@@ -1,6 +1,6 @@
 {
   "name": "host-colors",
-  "version": "0.1.0",
-  "description": "Colors the bar above the prompt, the footer and the status line by the machine's hostname, so sessions on different hosts look different.",
+  "version": "0.1.1",
+  "description": "Colors the bar above the prompt and the footer by the machine's hostname, so sessions on different hosts look different.",
   "types": "./types/index.d.ts"
 }

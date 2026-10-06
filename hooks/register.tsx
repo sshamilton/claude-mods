@@ -37,7 +37,6 @@ export const register: Register = on => {
     }
     const info: HostInfo = { name, color: pickColor(name) }
     await update($, host, () => info)
-    $.ui.status(`⬢ ${name}`)
     return next(e)
   })
 
