@@ -1,0 +1,11 @@
+{
+  "name": "sshamilton-mods",
+  "owner": { "name": "Stephen Hamilton" },
+  "plugins": [
+    {
+      "name": "host-colors",
+      "source": "./",
+      "description": "Colors the bar above the prompt, the footer and the status line by hostname."
+    }
+  ]
+}
